@@ -23,3 +23,4 @@ For this project, the goal was to use an FPGA to create the digital logic of a U
 [QuestaSim 2022.2](https://static.sw.cdn.siemens.com/siemens-disw-assets/public/QzFgMxW5gizEDRIAZYTQE/en-US/Siemens-SW-QuestaSim-FS-85329-D5.pdf)
 
 [puTTY Terminal Program](https://www.putty.org/)
+
