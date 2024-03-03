@@ -48,7 +48,7 @@ begin
     data <= addressROM(to_integer(unsigned(address)));
     
     --Clock Generator for Target Baud (This is a 9600 Baud Clock)
-    process(clk)
+    baud_gen: process(clk)
         variable count: integer range 0  to 8000 := 0;
         begin
             if rising_edge(clk) then
