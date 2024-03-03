@@ -10,6 +10,7 @@ For this project, the goal was to use an FPGA to create the digital logic of a U
 
 ## Goals of Design
 > Determine the major pieces to include
+
 For Transmission:
 1. Target a specific speed to build a baud rate generator/clock divider around
 2. Framing bit adder (include start/stop bits)
@@ -17,6 +18,7 @@ For Transmission:
 4. A register to hold byte
 5. Status registers (busy/sent/idle)
 6. Bit Serializer/PISO Shifting
+
 For Receiving:
 1. Start bit edge detector
 2. Bit center detector
@@ -47,28 +49,32 @@ For Receiving:
 
 ## Reference Images
 
-1. Figure 1: RS232 UART (Transmission) Logic Design 
+Figure 1: RS232 UART (Transmission) Logic Design 
 ![Alt text](ReferenceImages/UART_Transmission_Logic.png)
 
-2. Figure 2: MAX 242 Transceiver Circuit to Transmit According to RS232 Spec (From Data Sheet)
+Figure 2: MAX 242 Transceiver Circuit to Transmit According to RS232 Spec (From Data Sheet)
 ![Alt text](ReferenceImages/MAX242_OperatingCircuit.png)
 
 ---------------------------------------------------------------------------------------------------
 
 ## Results
-1. Figure 3: Behavioral Simulation Testing 
+Figure 3: Behavioral Simulation Testing 
 ![Alt text](TestingResults/QuestaSimFunctionalSimulation.png)
+
 This figure shows the behavioral simulation waveforms. Of interest is the output signal, as well as word to ensure that the PISO is properly shifting through the data.
 
-2. Figure 4: Post Synthesis and Implementation 
+Figure 4: Post Synthesis and Implementation 
 ![Alt text](TestingResults/Vivado_PostImplementation_and_Synthesis.png)
+
 This figure verifies the behavior remains consistent from behavioral simulation, and that it is ready to be downloaded onto a board. 
 
-3. Figure 5: Oscilloscope Readings
+Figure 5: Oscilloscope Readings
 ![Alt text](TestingResults/OscilloscopeOutput_without_Circuit.png)
+
 This figure verifies that the board is able to output RS232 communication. Without the transceiver circuit, it does not follow RS232 spec, but this is okay for quick verification that the board is functional. 
 
-4. Figure 6: puTTY Terminal Output
+Figure 6: puTTY Terminal Output
 ![Alt text](TestingResults/puTTY_Terminal_Output.png)
+
 This figure shows the final output in puTTY when the transceiver circuit was constructed and connected in between the Basys 3 board and the PC. Now, the initial "B" is cut off, but the rest of the message remains intact, showing moderate success overall.
 One potential reason for the cutoff "B" might be due to the address generator not indexing correctly. Due to time constraints this could not be properly diagnosed, however. 
